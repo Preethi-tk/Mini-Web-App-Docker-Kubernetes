@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mini-web-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: mini-web-app
+
+  template:
+    metadata:
+      labels:
+        app: mini-web-app
+
+    spec:
+      containers:
+        - name: mini-web-app
+          image: 24ucs214/mini-web-app:latest
+          ports:
+            - containerPort: 80
